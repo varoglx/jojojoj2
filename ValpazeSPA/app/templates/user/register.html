@@ -1,0 +1,12 @@
+
+<form method="post">
+    {{ form.hidden_tag() }}
+    {{ form.email.label }} {{ form.email() }}<br>
+    {{ form.username.label }} {{ form.username() }}<br>
+    {{ form.nombre.label }} {{ form.nombre() }}<br>
+    {{ form.apellido.label }} {{ form.apellido() }}<br>
+    {{ form.password.label }} {{ form.password() }}<br>
+    {{ form.confirm_password.label }} {{ form.confirm_password() }}<br>
+    {{ form.submit() }}
+</form>
+

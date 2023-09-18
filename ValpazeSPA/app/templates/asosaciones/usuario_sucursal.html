@@ -1,0 +1,12 @@
+<form method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.usuario_id.label }}<br>
+        {{ form.usuario_id }}
+    </p>
+    <p>
+        {{ form.sucursal_id.label }}<br>
+        {{ form.sucursal_id }}
+    </p>
+    <p>{{ form.submit() }}</p>
+</form>

@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h2>Seleccionar Clínica</h2>
+    
+    <form method="post">
+        <select name="centro_clinico_id">
+            {% for clinica in clinicas %}
+                <option value="{{ clinica.id }}">{{ clinica.nombre }}</option>
+            {% endfor %}
+        </select>
+        
+        <input type="submit" value="Seleccionar">
+    </form>
+{% endblock %}
