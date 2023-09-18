@@ -1,0 +1,22 @@
+
+
+{% block content %}
+<div class="container">
+    <h2>Registrar Sucursal</h2>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.nombre_sucursal.label }}<br>
+            {{ form.nombre_sucursal(class="form-control") }}<br>
+            {% if form.nombre_sucursal.errors %}
+                {% for error in form.nombre_sucursal.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+</div>
+{% endblock %}

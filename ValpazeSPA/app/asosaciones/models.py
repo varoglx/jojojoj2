@@ -9,3 +9,5 @@ usuario_sucursal = Table(
     db.Column('usuario_id', db.Integer, db.ForeignKey('usuarios.id')),
     db.Column('sucursal_id', db.Integer, db.ForeignKey('sucursal.id_sucursal'))
 )
+
+

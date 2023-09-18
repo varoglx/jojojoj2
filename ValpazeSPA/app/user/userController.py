@@ -7,14 +7,14 @@ from app import login_manager
 from flask_login import login_user,current_user,login_required,logout_user
 from flask import session
 from app import app
-
+from flask import session
 @login_manager.user_loader
 def load_user(user_id):
     
     return Usuarios.query.get(user_id)
 
 usuarioBP = Blueprint('user',__name__)
-@app.route('/register', methods=['GET', 'POST'])
+@usuarioBP.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegisterForm()
     if form.validate_on_submit():
@@ -40,11 +40,13 @@ def login():
         if user:
             if check_password_hash(user.password, form.password.data):
                 login_user(user)
+                session['user_id'] = user.id
+                print(session['user_id'])
                 return redirect(url_for('register'))
                 
         else:
             flash('Usuario o contraseña incorrectos.', 'error')
-            return redirect(url_for('login'))  
+            return redirect(url_for('user.login'))  
 
 
 
@@ -54,18 +56,11 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('login'))
+    session['user_id'] = ''
+    
+    return redirect(url_for('user.login'))
 
 
-@usuarioBP.route('/dashboard', methods=['GET', 'POST'])
-@login_required
-def dashboard():
-    return render_template('user/dashboard.html')
-
-
-@usuarioBP.route('/perfil')
-def perfil():
-    return render_template('user/dashboard.html')
 
 
 

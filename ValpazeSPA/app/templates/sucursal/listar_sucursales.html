@@ -1,0 +1,23 @@
+
+
+{% block content %}
+<div class="container">
+    <h2>Sucursales</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sucursal in sucursales %}
+            <tr>
+                <td>{{ sucursal.id_sucursal }}</td>
+                <td>{{ sucursal.nombre_sucursal }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

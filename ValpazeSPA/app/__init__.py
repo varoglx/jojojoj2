@@ -31,7 +31,7 @@ login_manager.login_view = 'user.login' # es la ruta donde sera redirigido el us
 from app.controllers import general # import de Blueprint de controllers
 from app.user.userController import usuarioBP
 from app.asosaciones.asosacionesController import asosacionesBP
-
+from app.sucursal.sucursalController import sucursalBP
 
 
 
@@ -42,5 +42,6 @@ from app.asosaciones.asosacionesController import asosacionesBP
 app.register_blueprint(general)
 app.register_blueprint(usuarioBP)
 app.register_blueprint(asosacionesBP)
+app.register_blueprint(sucursalBP)
 
 
